@@ -13,6 +13,13 @@ To do so, cut all the content of the div `<div class="col-3 col-item">` and past
 
 To move any picture as Ezio, move the `ezio` class to any other block.
 
+## Features
+- All features of the [Dubbadhar theme](https://github.com/ModBros/mobro-theme-dubbadhar)
+- 3 x 4 blocks grid system
+- Line charts colored regarding the % of use
+- Network usage
+- Try to hack Abstergo servers every 32 sec
+
 ## Contributing
 All contribution are welcome, please fork and create pull request!
 
