@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Abstergo Theme</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="/img/abstergo-logo.png" />
+    <link integrity="" rel="stylesheet" href="/assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="/assets/mobro-applet.css">
+    <link integrity="" rel="stylesheet" href="/assets/clock.css">
+    <link integrity="" rel="stylesheet" href="/assets/abstergo.css">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+      <!-- ROW 1 COL 1 = 1-1 -->
+        <div class="col-3 col-item">
+          <div class="screen glitch">
+            <div class="clock is-off"><span class="time" data-time=""></span></div>
+          </div>
+        </div>
+      <!-- ROW 1 COL 2 = 1-2 -->
+        <div class="col-3 col-item">
+          <div class="chart-wrapper">
+            <canvas id="cpu-chart-doughnut" data-border="margins" data-name="CPU TEMP" data-unit="°C"></canvas>
+          </div>
+        </div>
+      <!-- ROW 1 COL 3 = 1-3 -->
+        <div class="col-3 col-item">
+          <h3 style="position:absolute;left:20%;top:40%;">CPU Load: <span id="cpu-current-load"></span>%</h3>
+          <div class="chart-wrapper">
+            <canvas id="cpu-chart-line" data-name="LOAD" data-unit="%"></canvas>
+          </div>
+        </div>
+      <!-- ROW 1 COL 4 = 1-4 -->
+        <div class="col-3 col-item">
+          <div class="row">
+            <div class="col-6">
+              <img id="cpu_fan_img" src="img/cpu-fan.png" class="img-fan" />
+            </div>
+            <div class="col-6 fan-values">
+              <p>
+                Speed: <span id="cpu_rpm"></span>
+              </p>
+              <p>
+                Load: <span id="cpu_fan_usage"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-middle">
+      <!-- ROW 2 COL 1 = 2-1 -->
+        <div class="col-3 col-item">
+          <div class="row">
+            <div class="col-6">
+                <h3>RAM</h3>
+                <h4><span id="mobro-ram-data--used"></span>/<span id="mobro-ram-data--total"></span></h4>
+                <div class="chart-wrapper">
+                  <canvas id="ram-chart-doughnut" data-border="margins" data-name="" width="100%" height="100%" data-unit="%"></canvas>
+                </div>
+            </div>
+            <div class="col-6">
+                <h3>VRAM</h3>
+                <h4><span id="mobro-vram-data"></span>/<span id="mobro-vram-data-total"></span></h4>
+                <div class="chart-wrapper">
+                  <canvas id="vram-chart-doughnut" data-border="margins" data-name="" width="100%" height="100%" data-unit="%"></canvas>
+                </div>
+            </div>
+          </div>
+        </div>
+      <!-- ROW 2 COL 2 = 2-2 -->
+        <div class="col-3 col-item">
+
+        </div>
+      <!-- ROW 2 COL 3 = 2-3 -->
+        <div class="col-3 col-item">
+
+        </div>
+      <!-- ROW 2 COL 4 = 2-4 -->
+        <div class="col-3 col-item ezio">
+
+        </div>
+      </div>
+      <div class="row fixed-bottom">
+      <!-- ROW 3 COL 1 = 3-1 -->
+        <div class="col-3 col-item">
+          <span id="network-unit"></span>
+          <div class="chart-wrapper">
+              <canvas id="network-chart-line" data-name="" data-unit="MB/s"></canvas>
+          </div>
+        </div>
+      <!-- ROW 3 COL 2 = 3-2 -->
+        <div class="col-3 col-item">
+          <div class="chart-wrapper">
+              <canvas id="gpu-chart-doughnut" data-border="margins" data-name="GPU TEMP" data-unit="°C"></canvas>
+          </div>
+        </div>
+      <!-- ROW 3 COL 3 = 3-3 -->
+        <div class="col-3 col-item">
+          <h3 class="text-right" style="position:absolute;left:20%;top:40%;">GPU Load: <span id="gpu-current-load"></span>%</h3>
+          <div class="chart-wrapper">
+              <canvas id="gpu-chart-line" data-name="LOAD" data-unit="%"></canvas>
+          </div>
+        </div>
+      <!-- ROW 3 COL 4 = 3-4 -->
+        <div class="col-3 col-item">
+          <div class="row">
+            <div class="col-6">
+              <img id="gpu_fan_img" src="img/gpu-fan.png" class="img-fan" />
+            </div>
+            <div class="col-6 fan-values">
+              <p>
+                Speed: <span id="gpu_rpm"></span>
+              </p>
+              <p>
+                Load: <span id="gpu_fan_usage"></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <input type="hidden" id="gpu_fan_usage" value="100" />
+    <script src="/sdk.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha256-t9UJPrESBeG2ojKTIcFLPGF7nHi2vEc7f5A2KpH/UBU=" crossorigin="anonymous"></script>
+    <script src="/assets/vendor.js"></script>
+    <script src="/assets/clock.js"></script>
+    <script src="/assets/mobro-applet.js"></script>
+    <script src="/assets/abstergo.js"></script>
+  </body>
+</html>

@@ -1,0 +1,121 @@
+{"channels":[
+  {
+    "name": "theme_fan_speed_cpu",
+    "sources": "all",
+    "hardwaretype": "Mainboard",
+    "sensortype": "Fan",
+    "fallbackToFirstValue": true,
+    "extract": [{
+      "byLabel": [{
+        "includes": "(Chassis|chassis)"
+      }, {
+        "includes": "cpu"
+      }, {
+        "includes": "Cpu"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_fan_usage_gpu",
+    "sources": "all",
+    "hardwaretype": "Graphics",
+    "sensortype": "Usage",
+    "fallbackToFirstValue": true,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "GPU Fan"
+      }, {
+        "includes": "gpu fan"
+      }, {
+        "includes": "Gpu Fan"
+      }, {
+        "includes": "GPU FAN"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_fan_speed_gpu",
+    "sources": "all",
+    "hardwaretype": "Graphics",
+    "sensortype": "Fan",
+    "fallbackToFirstValue": true,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "GPU"
+      }, {
+        "includes": "gpu"
+      }, {
+        "includes": "Gpu"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_vram",
+    "sources": "all",
+    "hardwaretype": "Graphics",
+    "sensortype": "Data",
+    "fallbackToFirstValue": false,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "Memory Used"
+      },{
+        "includes": "Memory Usage"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_vram_percentage",
+    "sources": "all",
+    "hardwaretype": "Graphics",
+    "sensortype": "Usage",
+    "fallbackToFirstValue": false,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "Memory",
+        "excludes": "Controller"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_vram_total",
+    "sources": "all",
+    "hardwaretype": "Graphics",
+    "sensortype": "Data",
+    "fallbackToFirstValue": false,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "Memory Total"
+      }
+      ]
+    }]
+  },
+  {
+    "name": "theme_network_dl_usage",
+    "sources": "all",
+    "hardwaretype": "Network",
+    "sensortype": "Bitrate",
+    "fallbackToFirstValue": false,
+    "extract": [{
+      "byLabel": [{
+        "includes": "Current DL"
+      }]
+    }]
+  },
+  {
+    "name": "theme_network_up_usage",
+    "sources": "all",
+    "hardwaretype": "Network",
+    "sensortype": "Bitrate",
+    "fallbackToFirstValue": false,
+    "extract": [{
+      "byLabel": [{
+        "includes": "Current UP"
+      }]
+    }]
+  }]
+}

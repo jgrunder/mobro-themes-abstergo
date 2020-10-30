@@ -1,0 +1,61 @@
+body {
+  background-image: url(/img/abstergo-background.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+  color: white !important;
+}
+
+h3 {
+  font-size: 3vh;
+}
+
+.col-item {
+  color: white;
+  text-align: center !important;
+  height: 26vh;
+  padding: 15px !important;
+}
+
+.fixed-bottom {
+  left: 15px;
+  right: 15px;
+}
+
+.row-middle {
+  margin-top: 5vh;
+}
+
+.row-middle>.col-item {
+  height: 39vh;
+}
+
+.ezio {
+  background-image: url(/img/ezio.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.img-fan {
+  height: 20vh;
+}
+
+.fan-values {
+  padding-top: 5vh;
+  font-size: 2vh;
+}
+
+#network-unit {
+  position:absolute;
+  font-size:2vh;
+  color:#666;
+}
+
+@media screen and (max-width: 1024px) {
+  .col-item {
+    padding: 15px 0 !important;
+  }
+}
