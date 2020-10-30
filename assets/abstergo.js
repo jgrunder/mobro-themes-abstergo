@@ -36,6 +36,8 @@ const settings = {
   document.addEventListener(visibilityChange, handleVisibilityChange, false);
   configureChartJS();
   let charts = {};
+  let currentCpuRpm = 0;
+  let maxCpuRpm = 0;
   MobroSDK.init().then(() => {
     const mobro_settings = MobroSDK.helper.settings; //could do that better some max vals could be wrong - please fix
 
@@ -94,27 +96,31 @@ const settings = {
     // https://codepen.io/sosuke/pen/Pjoqqp
     MobroSDK.addChannelListener("theme_fan_speed_cpu", data => {
       if (data.payload) {
-        $("#cpu_rpm").html(parseFloat(data.payload.value) + " RPM");
+        currentCpuRpm = parseFloat(data.payload.value);
+        $("#cpu_rpm").html(currentCpuRpm + " RPM");
+        if(currentCpuRpm > maxCpuRpm) {
+          maxCpuRpm = currentCpuRpm + 1;
+        }
       } else {
         $("#cpu_rpm").html("0 RPM");
       }
     });
     MobroSDK.addChannelListener("theme_fan_usage_cpu", data => {
-      if (data.payload && data.payload.sensortype) {
+      console.log(data);
+      if (data.payload && data.payload.sensortype && data.payload.value > 0) {
         var currentPercent = parseFloat(data.payload.value);
-        $("#cpu_fan_usage").html(currentPercent + "%");
-        if(currentPercent <= 50) {
-          $("#cpu_fan_img").css('filter', "invert(44%) sepia(92%) saturate(468%) hue-rotate(150deg) brightness(93%) contrast(96%)");
-        }
-        else if(currentPercent <= 70) {
-          $("#cpu_fan_img").css('filter', "invert(50%) sepia(86%) saturate(1036%) hue-rotate(360deg) brightness(103%) contrast(106%)");
-        }
-        else {
-          $("#cpu_fan_img").css('filter', "invert(9%) sepia(78%) saturate(6113%) hue-rotate(18deg) brightness(87%) contrast(122%)");
-        }
       } else {
-        $("#cpu_fan_usage").html("0%");
-        $("#cpu_fan_img").css('filter', "invert(0%) sepia(91%) saturate(7500%) hue-rotate(317deg) brightness(97%) contrast(103%)");
+        var currentPercent = Math.round(currentCpuRpm / maxCpuRpm * 100);
+      }
+      $("#cpu_fan_usage").html(currentPercent + "%");
+      if(currentPercent <= 50) {
+        $("#cpu_fan_img").css('filter', "invert(44%) sepia(92%) saturate(468%) hue-rotate(150deg) brightness(93%) contrast(96%)");
+      }
+      else if(currentPercent <= 70) {
+        $("#cpu_fan_img").css('filter', "invert(50%) sepia(86%) saturate(1036%) hue-rotate(360deg) brightness(103%) contrast(106%)");
+      }
+      else {
+        $("#cpu_fan_img").css('filter', "invert(9%) sepia(78%) saturate(6113%) hue-rotate(18deg) brightness(87%) contrast(122%)");
       }
     });
     MobroSDK.addChannelListener("theme_fan_speed_gpu", data => {
