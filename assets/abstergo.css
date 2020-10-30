@@ -51,7 +51,7 @@ h3 {
 #network-unit {
   position:absolute;
   font-size:2vh;
-  color:#666;
+  color:#CCC;
 }
 
 @media screen and (max-width: 1024px) {

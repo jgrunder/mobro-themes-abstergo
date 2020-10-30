@@ -325,7 +325,8 @@ function createLine(element, interpolate = false) {
           drawBorder: false
         },
         ticks: {
-          mirror: true
+          mirror: true,
+          fontColor: '#FFF'
         }
       }]
     }
@@ -384,7 +385,8 @@ function createLines(element, interpolate = false) {
           drawBorder: false
         },
         ticks: {
-          mirror: true
+          mirror: true,
+          fontColor: '#FFF'
         }
       }]
     }
