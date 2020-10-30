@@ -93,6 +93,13 @@ const settings = {
     // Convert Hexa color into css filter:
     // https://codepen.io/sosuke/pen/Pjoqqp
     MobroSDK.addChannelListener("theme_fan_speed_cpu", data => {
+      if (data.payload) {
+        $("#cpu_rpm").html(parseFloat(data.payload.value) + " RPM");
+      } else {
+        $("#cpu_rpm").html("0 RPM");
+      }
+    });
+    MobroSDK.addChannelListener("theme_fan_usage_cpu", data => {
       if (data.payload && data.payload.sensortype) {
         var currentPercent = parseFloat(data.payload.value);
         $("#cpu_fan_usage").html(currentPercent + "%");

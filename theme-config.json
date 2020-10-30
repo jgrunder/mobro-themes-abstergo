@@ -1,5 +1,24 @@
 {"channels":[
   {
+    "name": "theme_fan_usage_cpu",
+    "sources": "all",
+    "hardwaretype": "Mainboard",
+    "sensortype": "Usage",
+    "fallbackToFirstValue": true,
+    "extract": [{
+      "byLabel": [ {
+        "includes": "CPU Fan"
+      }, {
+        "includes": "cpu fan"
+      }, {
+        "includes": "Cpu Fan"
+      }, {
+        "includes": "CPU FAN"
+      }
+      ]
+    }]
+  },
+  {
     "name": "theme_fan_speed_cpu",
     "sources": "all",
     "hardwaretype": "Mainboard",
